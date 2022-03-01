@@ -1,9 +1,10 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const db = require("./app/models");
 
 let corsOptions = {
-origin:"http://localhost:8081"
+  origin: "http://localhost:8081",
 };
 
 app.use(cors(corsOptions));
@@ -16,10 +17,13 @@ app.use(express.urlencoded());
 
 //simple route
 app.get("/", (req, res) => {
-    res.json({
-        message: "Welcome to Tasks REST API application."
-    });
+  res.json({
+    message: "Welcome to Tasks REST API application.",
+  });
 });
+
+//sync
+db.sequelize.sync();
 
 //set port , listen for requests
 const PORT = process.env.PORT || 8080;
