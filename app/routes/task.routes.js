@@ -8,6 +8,8 @@ module.exports = (app) => {
   router.get("/", tasks.findAll);
   //get single task by id
   router.get("/:id", tasks.findOne);
+  //delete task
+  router.delete("/:id", tasks.delete);
 
   app.use("/api/tasks", router);
 };

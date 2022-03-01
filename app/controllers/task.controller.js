@@ -72,7 +72,30 @@ exports.findOne = (req, res) => {
 exports.update = () => {};
 
 //Delete task
-exports.delete = () => {};
+exports.delete = (req, res) => {
+  const id = req.params.id;
+  Task.destroy({
+    where: {
+      id: id,
+    },
+  })
+    .then((num) => {
+      if (num === 1) {
+        res.send({
+          message: "Task was deleted successfully!",
+        });
+      } else {
+        res.send({
+          message: "Cannot delete Tutorial with id = " + id,
+        });
+      }
+    })
+    .catch((err) => {
+      res.send({
+        message: err.message || "Cannot delete Tutorial with id = " + id,
+      });
+    });
+};
 
 //Delete all tasks
 exports.deleteAll = () => {};
