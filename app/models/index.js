@@ -21,9 +21,9 @@ sequelize
   .catch(() => {
     console.log("MySQL is not connected");
   });
-// const db = {};
+const db = {};
 
-// db.Sequelize = Sequelize;
-// db.sequelize = Sequelize;
-// db.tasks = require("../models/task.model")(sequelize, Sequelize);
-// module.exports = db;
+db.Sequelize = Sequelize;
+db.sequelize = Sequelize;
+db.tasks = require("../models/task.model")(sequelize, Sequelize);
+module.exports = db;
