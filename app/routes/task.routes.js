@@ -6,6 +6,8 @@ module.exports = (app) => {
   router.post("/", tasks.create);
   //Get All tasks
   router.get("/", tasks.findAll);
+  //get single task by id
+  router.get("/:id", tasks.findOne);
 
   app.use("/api/tasks", router);
 };
