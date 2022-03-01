@@ -41,3 +41,13 @@ update a Tutorial by id: update(data, where: { id: id })
 remove a Tutorial: destroy(where: { id: id })
 remove all Tutorials: destroy(where: {})
 find all Tutorials by title: findAll({ where: { title: ... } })
+
+# Create Controller :
+
+- controllers/task.controller.js for crud http request
+
+# Create the Routes
+
+- routes/task.routes.js
+
+Resource : https://www.bezkoder.com/node-js-express-sequelize-mysql/
