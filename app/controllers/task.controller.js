@@ -69,7 +69,24 @@ exports.findOne = (req, res) => {
 };
 
 //Update task
-exports.update = () => {};
+exports.update = (request, response) => {
+  const id = req.params.id;
+  Task.update(request.body, {
+    where: {
+      id,
+    },
+  })
+    .then((nums) => {
+      response.send({
+        message: `${nums} tasks(s) mis à jour`,
+      });
+    })
+    .catch((error) => {
+      response.send({
+        message: error.message,
+      });
+    });
+};
 
 //Delete task
 exports.delete = (req, res) => {

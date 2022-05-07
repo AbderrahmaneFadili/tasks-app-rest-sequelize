@@ -28,4 +28,12 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.tasks = require("../models/task.model")(sequelize, Sequelize);
+db.Users = require("../models/user.model")(sequelize, Sequelize);
+
+db.Users.hasMany(db.tasks, { as: "comments" });
+db.tasks.belongsTo(db.Users, {
+  foreignKey: "userId",
+  as: "user",
+});
+
 module.exports = db;
