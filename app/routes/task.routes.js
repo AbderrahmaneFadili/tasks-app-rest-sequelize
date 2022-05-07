@@ -10,6 +10,8 @@ module.exports = (app) => {
   router.get("/:id", tasks.findOne);
   //delete task
   router.delete("/:id", tasks.delete);
+  //update task
+  router.put("/:id", tasks.update);
 
   app.use("/api/tasks", router);
 };

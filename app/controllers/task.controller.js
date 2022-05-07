@@ -16,6 +16,7 @@ exports.create = (req, res) => {
   const task = {
     title: req.body.title,
     completed: req.body.completed,
+    userId: req.body.userId,
   };
 
   Task.create(task)
@@ -70,7 +71,7 @@ exports.findOne = (req, res) => {
 
 //Update task
 exports.update = (request, response) => {
-  const id = req.params.id;
+  const id = request.params.id;
   Task.update(request.body, {
     where: {
       id,

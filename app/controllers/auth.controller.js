@@ -2,6 +2,7 @@ const db = require("../models");
 const User = db.Users;
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const config = require("../config/auth.config");
 
 //Operator
 const operator = db.Sequelize.Op;
@@ -65,6 +66,7 @@ exports.login = (request, response) => {
 
         //return the user
         response.status(200).send({
+          id: user.id,
           fullName: user.fullName,
           email: user.email,
           password: user.password,
